@@ -6,7 +6,7 @@ provider "aws" {
   region     = "us-east-1"
   access_key = data.vault_generic_secret.aws.data.access_key
   secret_key = data.vault_generic_secret.aws.data.secret_key
-  token = data.vault_generic_secret.aws.data.token
+  token = data.vault_generic_secret.aws.data.security_token
 }
 
 resource "random_string" "random" {
