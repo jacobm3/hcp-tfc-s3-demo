@@ -17,7 +17,7 @@ resource "random_string" "random" {
 
 resource "aws_s3_bucket" "website_bucket" {
   force_destroy = true
-  bucket = "${var.bucket_name}-${random_string.random.result}"
+  bucket = "jacobm-${random_string.random.result}"
   acl    = "public-read"
   
   website {
@@ -45,7 +45,7 @@ resource "aws_s3_bucket" "website_bucket" {
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::${var.bucket_name}-${random_string.random.result}/*"
+            "Resource": "arn:aws:s3:::jacobm-${random_string.random.result}/*"
         }
     ]
 }
